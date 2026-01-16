@@ -1,0 +1,198 @@
+/* ===== CSS Reset (Minimal) ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Base Typography ===== */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #0f0f0f;
+  color: #eaeaea;
+  line-height: 1.6;
+}
+
+/* ===== Headings ===== */
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 1.25rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Text ===== */
+p {
+  max-width: 65ch;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+/* ===== Links ===== */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Layout Containers ===== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===== Header ===== */
+header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+}
+
+/* ===== Navigation ===== */
+nav a {
+  margin-left: 1.25rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  position: relative;
+  background-color: #2b3a2f;        /* tatami-inspired dark green */
+  color: #ffffff;
+  height: 100vh;                     /* full viewport height */
+  display: flex;
+  align-items: center;               /* vertically center content */
+  padding: 0 1.25rem;                /* horizontal padding */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);      /* soft overlay for readability */
+  z-index: 0;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;                        /* text above overlay */
+}
+
+.hero h2 {
+  font-size: 3rem;                    /* prominent heading */
+  max-width: 600px;                   /* keeps line length readable */
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 500px;
+  margin-bottom: 0;
+}
+
+/* ===== Header/Nav Responsive ===== */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    margin-top: 0.75rem;
+  }
+
+  nav a {
+    margin-left: 0;
+    margin-right: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* ===== Main Sections ===== */
+section {
+  padding: 4rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+section#about {
+  background-color: #0f0f0f;
+}
+
+section#schedule {
+  background-color: #111111;
+}
+
+section#location {
+  background-color: #0f0f0f;
+}
+
+section h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+section p {
+  font-size: 1.1rem;
+  max-width: 650px;
+}
+
+/* ===== Footer ===== */
+footer {
+  padding: 1.5rem 1.25rem;
+  font-size: 0.9rem;
+  opacity: 0.75;
+  text-align: center;
+  background-color: #111111;
+}
+/* ===== Section Fade-In on Scroll ===== */
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
