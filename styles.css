@@ -76,9 +76,14 @@ header {
 
 .header-inner {
   display: flex;
+  align-items: center; /* vertical alignment */
   justify-content: space-between;
-  align-items: center;
   padding: 1rem 1.25rem;
+}
+
+/* Optional: nudge nav links slightly lower */
+header nav a {
+  padding-top: 0.25rem; /* adjust as needed */
 }
 
 /* ===== Navigation ===== */
@@ -215,4 +220,29 @@ section .container {
   padding-right: 2rem;
   max-width: 800px; /* controls line length for readability */
   margin: 0 auto;    /* keeps container centered */
+}
+
+/* Header Logo */
+.logo {
+  height: 100px;  /* default desktop height */
+  width: auto;   /* maintain aspect ratio */
+}
+
+/* Hidden H1 for SEO */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* Responsive logo size for mobile */
+@media (max-width: 480px) {
+  .logo {
+    height: 60px;  /* smaller on phones */
+  }
 }
