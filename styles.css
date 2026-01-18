@@ -39,7 +39,6 @@ h3 {
 p {
   max-width: 65ch;
   margin-bottom: 1rem;
-  opacity: 0.9;
 }
 
 /* ===== Links ===== */
@@ -50,6 +49,18 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* ===== Section Spacing ===== */
+section {
+  padding: 2rem 1.25rem;
+}
+
+/* ===== Footer ===== */
+footer {
+  padding: 1.5rem 1.25rem;
+  font-size: 0.9rem;
+  opacity: 0.75;
 }
 
 /* ===== Layout Containers ===== */
@@ -84,12 +95,9 @@ nav a:hover {
 /* ===== Hero Section ===== */
 .hero {
   position: relative;
-  background-color: #2b3a2f;        /* tatami-inspired dark green */
+  background-color: #2b3a2f;  /* tatami-inspired dark green */
   color: #ffffff;
-  height: 100vh;                     /* full viewport height */
-  display: flex;
-  align-items: center;               /* vertically center content */
-  padding: 0 1.25rem;                /* horizontal padding */
+  padding: 8rem 1.25rem;
 }
 
 .hero::before {
@@ -99,26 +107,26 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.4);      /* soft overlay for readability */
+  background: rgba(0,0,0,0.4);  /* soft dark overlay */
   z-index: 0;
 }
 
 .hero .container {
   position: relative;
-  z-index: 1;                        /* text above overlay */
+  z-index: 1;  /* ensures text is above overlay */
 }
 
-.hero h2 {
-  font-size: 3rem;                    /* prominent heading */
-  max-width: 600px;                   /* keeps line length readable */
-  margin-bottom: 1rem;
+.hero h1 {
+  font-size: 3rem;          /* prominent heading */
+  max-width: 600px;
   line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 .hero p {
   font-size: 1.25rem;
   max-width: 500px;
-  margin-bottom: 0;
+  opacity: 0.9;
 }
 
 /* ===== Header/Nav Responsive ===== */
@@ -137,62 +145,71 @@ nav a:hover {
     margin-right: 1rem;
     font-size: 1rem;
   }
+
+  .hero {
+    padding: 6rem 1.25rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .hero h2 {
+  .hero {
+    padding: 4rem 1.25rem;
+  }
+
+  .hero h1 {
     font-size: 2rem;
   }
 
   .hero p {
     font-size: 1rem;
   }
+
+  section p {
+    font-size: 1rem;
+  }
+
+  .schedule-list li {
+    font-size: 1rem;
+  }
 }
 
-/* ===== Main Sections ===== */
-section {
+/* ===== Main Sections (About, Schedule, Location) ===== */
+section#about,
+section#schedule,
+section#location {
   padding: 4rem 1.25rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-section#about {
-  background-color: #0f0f0f;
-}
-
-section#schedule {
-  background-color: #111111;
-}
-
-section#location {
-  background-color: #0f0f0f;
-}
-
-section h3 {
+/* Section headings (H2) */
+section h2 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
 }
 
+/* Section text */
 section p {
   font-size: 1.1rem;
   max-width: 650px;
+  opacity: 0.9;
 }
 
-/* ===== Footer ===== */
-footer {
-  padding: 1.5rem 1.25rem;
-  font-size: 0.9rem;
-  opacity: 0.75;
-  text-align: center;
-  background-color: #111111;
-}
-/* ===== Section Fade-In on Scroll ===== */
-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-out;
+/* ===== Schedule list styling ===== */
+.schedule-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
 }
 
-section.in-view {
-  opacity: 1;
-  transform: translateY(0);
+.schedule-list li {
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+/* ===== Optional visual centering tweak ===== */
+section .container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  max-width: 800px; /* controls line length for readability */
+  margin: 0 auto;    /* keeps container centered */
 }
