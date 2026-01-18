@@ -91,7 +91,7 @@ nav a:hover { opacity: 1; }
 .hero {
   position: relative;
   background-color: #2b3a2f;
-  background-image: url('assets/tatami.texture.png');
+  background-image: url('assets/tatami-texture.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
