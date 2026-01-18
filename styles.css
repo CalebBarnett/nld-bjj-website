@@ -92,12 +92,15 @@ nav a:hover {
   opacity: 1;
 }
 
-/* ===== Hero Section ===== */
+/* ===== Hero Section (Full Viewport) ===== */
 .hero {
   position: relative;
   background-color: #2b3a2f;  /* tatami-inspired dark green */
   color: #ffffff;
-  padding: 8rem 1.25rem;
+  min-height: 100vh;           /* fill entire viewport */
+  display: flex;               /* center content vertically */
+  align-items: center;
+  padding: 0 1.25rem;          /* horizontal padding only */
 }
 
 .hero::before {
@@ -147,13 +150,13 @@ nav a:hover {
   }
 
   .hero {
-    padding: 6rem 1.25rem;
+    min-height: 80vh;        /* slightly shorter on tablets */
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 4rem 1.25rem;
+    min-height: 70vh;        /* even shorter on phones */
   }
 
   .hero h1 {
