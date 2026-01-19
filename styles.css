@@ -58,6 +58,16 @@ header {
   padding: 1rem 1.25rem;
 }
 
+/* ===== Sticky Header ===== */
+header {
+  position: sticky;     /* stick to top on scroll */
+  top: 0;               /* top edge of viewport */
+  z-index: 1000;        /* ensures it sits above other content */
+  background-color: #0f0f0f;  /* same as body or add opacity if desired */
+  backdrop-filter: blur(5px);  /* optional: subtle blur effect */
+}
+
+
 /* Logo */
 .logo {
   height: 100px;
@@ -156,4 +166,51 @@ section .container {
   padding-right: 2rem;
   max-width: 800px;
   margin: 0 auto;
+}
+
+
+/* ===== Announcements Page ===== */
+#announcements {
+  padding: 4rem 1.25rem;
+}
+
+#announcements h2 {
+  margin-bottom: 1rem;
+}
+
+#announcements p {
+  max-width: 600px;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* Center Facebook feed */
+.fb-page {
+  margin-top: 2rem;
+}
+
+/* ===== Training Philosophy Section ===== */
+section#philosophy {
+  padding: 4rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+section#philosophy p {
+  max-width: 650px;
+}
+
+/* ===== What to Expect Section ===== */
+section#expect {
+  padding: 4rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+section#expect p {
+  max-width: 650px;
+}
+
+/* ===== Accessibility: Keyboard Focus ===== */
+a:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 3px;
 }
