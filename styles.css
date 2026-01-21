@@ -1,4 +1,6 @@
-/* ===== CSS Reset ===== */
+/* ======================================================
+   1. RESET & GLOBALS
+====================================================== */
 *,
 *::before,
 *::after {
@@ -7,54 +9,242 @@
   padding: 0;
 }
 
-/* ===== Smooth Scroll ===== */
 html {
   scroll-behavior: smooth;
 }
 
-/* ===== Typography ===== */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background-color: #0f0f0f;
   color: #eaeaea;
   line-height: 1.6;
 }
 
-h1, h2, h3 {
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ======================================================
+   2. TYPOGRAPHY
+====================================================== */
+h1,
+h2,
+h3 {
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
-h1 { font-size: 1.25rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+h1 {
+  font-size: 1.25rem;
+}
 
-p { max-width: 65ch; margin-bottom: 1rem; }
-a { color: inherit; text-decoration: none; }
-a:hover { text-decoration: underline; }
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
 
-/* ===== Section Spacing ===== */
-section { padding: 2rem 1.25rem; }
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
 
-/* ===== Footer ===== */
+p {
+  max-width: 65ch;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+/* ======================================================
+   3. LAYOUT HELPERS
+====================================================== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+section {
+  padding: 4rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ======================================================
+   4. HEADER & NAVIGATION
+====================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #0f0f0f;
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 100px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a,
+.dropdown-toggle {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-left: 1.25rem;
+}
+
+nav a:hover,
+.dropdown-toggle:hover {
+  opacity: 1;
+}
+
+/* ======================================================
+   5. DROPDOWN (INSTRUCTORS)
+====================================================== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  padding: 0.5rem 0;
+
+  background-color: #0f0f0f;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+
+  display: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  opacity: 1;
+}
+
+/* Desktop hover */
+@media (hover: hover) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+/* JS-controlled open (mobile & desktop click) */
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+
+/* Disable hover on touch devices */
+@media (hover: none) {
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+}
+
+/* ======================================================
+   6. HERO
+====================================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: #fff;
+
+  background-image: url("assets/gi-black.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  max-width: 600px;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 500px;
+}
+
+/* ======================================================
+   7. SCHEDULE
+====================================================== */
+.schedule-list {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.schedule-list li {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ======================================================
+   8. FOOTER
+====================================================== */
 footer {
   padding: 1.5rem 1.25rem;
   font-size: 0.9rem;
   opacity: 0.75;
 }
+
 .footer-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
   border-top: 1px solid #ccc;
-  font-size: 0.9rem;
-}
-
-.footer-right a {
-  margin-left: 0.75rem;
-  display: inline-block;
 }
 
 .social-icon {
@@ -68,242 +258,9 @@ footer {
   opacity: 0.8;
 }
 
-
-/* ===== Layout Containers ===== */
-.container { max-width: 1100px; margin: 0 auto; }
-
-/* ===== Header ===== */
-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.25rem;
-  overflow: visible;
-}
-/* ===== Dropdown Base ===== */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Toggle button */
-.dropdown-toggle {
-  background: none;
-  border: none;
-  color: inherit;
-  font-size: 0.95rem;
-  cursor: pointer;
-  margin-left: 1.25rem;
-  opacity: 0.85;
-}
-
-.dropdown-toggle:hover {
-  opacity: 1;
-}
-
-/* Menu hidden by default */
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-
-  background-color: #0f0f0f;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  min-width: 220px;
-  padding: 0.5rem 0;
-
-  display: none;
-  z-index: 999;
-}
-
-/* Desktop hover */
-@media (hover: hover) {
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-}
-
-/* Mobile / JS controlled open */
-.dropdown.open .dropdown-menu {
-  display: block;
-}
-
-/* Menu links */
-.dropdown-menu a {
-  display: block;
-  padding: 0.5rem 1rem;
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
-
-.dropdown-menu a:hover {
-  background-color: rgba(255, 255, 255, 0.06);
-  opacity: 1;
-}
-
-
-/* ===== Sticky Header ===== */
-header {
-  position: sticky;     /* stick to top on scroll */
-  top: 0;               /* top edge of viewport */
-  z-index: 1000;        /* ensures it sits above other content */
-  background-color: #0f0f0f;  /* same as body or add opacity if desired */
-  backdrop-filter: blur(5px);  /* optional: subtle blur effect */
-}
-
-
-/* Logo */
-.logo {
-  height: 100px;
-  width: auto;
-}
-@media (max-width: 480px) {
-  .logo { height: 60px; }
-}
-
-/* Hidden H1 for SEO */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
-}
-
-/* ===== Navigation ===== */
-nav a {
-  margin-left: 1.25rem;
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
-nav a:hover { opacity: 1; }
-
-/* ===== Hero Section ===== */
-.hero {
-  position: relative;
-  background-color: #2b3a2f;
-  background-image: url('assets/gi-black.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: #ffffff;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 0 1.25rem;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.3);
-  z-index: 0;
-}
-.hero .container { position: relative; z-index: 1; }
-.hero h1 { font-size: 3rem; max-width: 600px; margin-bottom: 1rem; line-height: 1.2; }
-.hero p { font-size: 1.25rem; max-width: 500px; opacity: 0.9; }
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .header-inner { flex-direction: column; align-items: flex-start; }
-  nav { margin-top: 0.75rem; }
-  nav a { margin-left: 0; margin-right: 1rem; font-size: 1rem; }
-  .hero { min-height: 80vh; }
-}
-
-@media (max-width: 480px) {
-  .hero { min-height: 70vh; }
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  section p { font-size: 1rem; }
-  .schedule-list li { font-size: 1rem; }
-}
-
-/* ===== Sections ===== */
-section#about,
-section#schedule,
-section#location {
-  padding: 4rem 1.25rem;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-section h2 { font-size: 1.75rem; margin-bottom: 1rem; }
-section p { font-size: 1.1rem; max-width: 650px; opacity: 0.9; }
-
-/* ===== Schedule list styling ===== */
-.schedule-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 1.5rem;
-}
-.schedule-list li {
-  margin-bottom: 0.5rem;
-  font-size: 1.05rem;
-}
-
-/* ===== Container visual tweak ===== */
-section .container {
-  padding-left: 2rem;
-  padding-right: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-
-/* ===== Announcements Page ===== */
-#announcements {
-  padding: 4rem 1.25rem;
-}
-
-#announcements h2 {
-  margin-bottom: 1rem;
-}
-
-#announcements p {
-  max-width: 600px;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
-/* Center Facebook feed */
-.fb-page {
-  margin-top: 2rem;
-}
-
-/* ===== Training Philosophy Section ===== */
-section#philosophy {
-  padding: 4rem 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-section#philosophy p {
-  max-width: 650px;
-}
-
-/* ===== What to Expect Section ===== */
-section#expect {
-  padding: 4rem 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-section#expect p {
-  max-width: 650px;
-}
-
-/* ===== Accessibility: Keyboard Focus ===== */
-a:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.6);
-  outline-offset: 3px;
-}
-
-/* ===== Instructor Page ===== */
+/* ======================================================
+   9. INSTRUCTOR PAGES
+====================================================== */
 .instructor-page {
   padding: 4rem 1.25rem;
 }
@@ -314,42 +271,80 @@ a:focus-visible {
 
 .instructor-header h1 {
   font-size: 2.5rem;
-  margin-bottom: 0.25rem;
 }
 
 .instructor-rank {
   opacity: 0.8;
-  font-size: 1.1rem;
 }
 
-/* Layout */
 .instructor-content {
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: 2.5rem;
 }
 
-/* Photo */
 .instructor-photo img {
-  width: 100%;
-  height: auto;
   border-radius: 4px;
 }
 
-/* Bio */
 .instructor-bio h2 {
   font-size: 1.4rem;
   margin-top: 2rem;
-  margin-bottom: 0.5rem;
 }
 
-.instructor-bio ul {
-  list-style: disc;
-  padding-left: 1.25rem;
+/* ======================================================
+   10. ACCESSIBILITY
+====================================================== */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
 }
 
-/* Mobile */
+a:focus-visible,
+.dropdown-toggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 3px;
+}
+
+/* ======================================================
+   11. RESPONSIVE
+====================================================== */
 @media (max-width: 768px) {
+  .logo {
+    height: 60px;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    margin-top: 0.75rem;
+  }
+
+  nav a,
+  .dropdown-toggle {
+    margin-left: 0;
+    margin-right: 1rem;
+    font-size: 1rem;
+  }
+
+  .hero {
+    min-height: 80vh;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
   .instructor-content {
     grid-template-columns: 1fr;
   }
@@ -358,20 +353,9 @@ a:focus-visible {
     max-width: 240px;
   }
 }
-/* Disable hover dropdown on touch devices */
-@media (hover: none) {
-  .dropdown:hover .dropdown-menu {
-    display: none;
-  }
-}
-@media (max-width: 768px) {
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
 
-  .dropdown-toggle {
-    margin-left: 0;
+@media (max-width: 480px) {
+  .hero {
+    min-height: 70vh;
   }
 }

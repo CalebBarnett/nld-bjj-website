@@ -10,9 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.text())
     .then(html => {
       document.getElementById("site-header").innerHTML = html;
-
-      // 🔑 Initialize dropdown AFTER header loads
-      initDropdown();
     })
     .catch(err => console.error("Header load error:", err));
 });
