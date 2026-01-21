@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initDropdown() {
   const dropdown = document.querySelector(".dropdown");
   const toggle = document.querySelector(".dropdown-toggle");
 
@@ -6,17 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   toggle.addEventListener("click", (e) => {
     e.preventDefault();
-    dropdown.classList.toggle("open");
+    e.stopPropagation();
 
-    const expanded = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", !expanded);
+    const isOpen = dropdown.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", isOpen);
   });
 
-  // Close dropdown when clicking outside
+  // Close when clicking outside
   document.addEventListener("click", (e) => {
     if (!dropdown.contains(e.target)) {
       dropdown.classList.remove("open");
       toggle.setAttribute("aria-expanded", "false");
     }
   });
-});
+}

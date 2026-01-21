@@ -81,6 +81,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1.25rem;
+  overflow: visible;
 }
 /* ===== Dropdown Base ===== */
 .dropdown {
@@ -355,5 +356,22 @@ a:focus-visible {
 
   .instructor-photo {
     max-width: 240px;
+  }
+}
+/* Disable hover dropdown on touch devices */
+@media (hover: none) {
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .dropdown-toggle {
+    margin-left: 0;
   }
 }
