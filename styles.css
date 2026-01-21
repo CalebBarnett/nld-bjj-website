@@ -38,26 +38,14 @@ a:hover {
 /* ======================================================
    2. TYPOGRAPHY
 ====================================================== */
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
-h1 {
-  font-size: 1.25rem;
-}
-
-h2 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-}
-
-h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-}
+h1 { font-size: 1.25rem; }
+h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
 
 p {
   max-width: 65ch;
@@ -71,8 +59,7 @@ p {
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding: 0 1.25rem;
 }
 
 section {
@@ -98,9 +85,7 @@ header {
   justify-content: space-between;
 }
 
-.logo {
-  height: 100px;
-}
+.logo { height: 100px; }
 
 nav {
   display: flex;
@@ -121,66 +106,7 @@ nav a:hover,
 }
 
 /* ======================================================
-   5. DROPDOWN (INSTRUCTORS)
-====================================================== */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-toggle {
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 220px;
-  padding: 0.5rem 0;
-
-  background-color: #0f0f0f;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 1000;
-
-  display: none;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 0.5rem 1rem;
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
-
-.dropdown-menu a:hover {
-  background-color: rgba(255, 255, 255, 0.06);
-  opacity: 1;
-}
-
-/* Desktop hover */
-@media (hover: hover) {
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-}
-
-/* JS-controlled open (mobile & desktop click) */
-.dropdown.open .dropdown-menu {
-  display: block;
-}
-
-/* Disable hover on touch devices */
-@media (hover: none) {
-  .dropdown:hover .dropdown-menu {
-    display: none;
-  }
-}
-
-/* ======================================================
-   6. HERO
+   5. HERO
 ====================================================== */
 .hero {
   position: relative;
@@ -188,7 +114,6 @@ nav a:hover,
   display: flex;
   align-items: center;
   color: #fff;
-
   background-image: url("assets/gi-black.png");
   background-size: cover;
   background-position: center;
@@ -219,7 +144,7 @@ nav a:hover,
 }
 
 /* ======================================================
-   7. SCHEDULE
+   6. SCHEDULE
 ====================================================== */
 .schedule-list {
   list-style: none;
@@ -232,50 +157,69 @@ nav a:hover,
 }
 
 /* ======================================================
-   8. FOOTER
+   7. FOOTER
 ====================================================== */
 footer {
   padding: 1.5rem 1.25rem;
   font-size: 0.9rem;
   opacity: 0.75;
+  background-color: #0f0f0f;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #ccc;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.social-icon {
-  width: 24px;
-  height: 24px;
+.footer-left {
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-right a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-right .social-icon {
+  font-size: 28px; /* Font Awesome icons */
   transition: transform 0.2s, opacity 0.2s;
 }
 
-.social-icon:hover {
-  transform: scale(1.1);
+.footer-right .social-icon:hover {
+  transform: scale(1.2);
   opacity: 0.8;
 }
 
 /* ======================================================
-   9. INSTRUCTOR PAGES
+   8. INSTRUCTOR PAGES
 ====================================================== */
 .instructor-page {
-  padding: 4rem 1.25rem;
+  padding: 6rem 1.25rem 4rem; /* top padding for sticky nav */
 }
 
 .instructor-header {
   margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
 }
 
 .instructor-header h1 {
   font-size: 2.5rem;
 }
 
-.instructor-rank {
-  opacity: 0.8;
-}
+.instructor-rank { opacity: 0.8; }
 
 .instructor-content {
   display: grid;
@@ -293,7 +237,7 @@ footer {
 }
 
 /* ======================================================
-   10. ACCESSIBILITY
+   9. ACCESSIBILITY
 ====================================================== */
 .visually-hidden {
   position: absolute;
@@ -310,17 +254,12 @@ a:focus-visible,
 }
 
 /* ======================================================
-   11. RESPONSIVE
+   10. RESPONSIVE
 ====================================================== */
 @media (max-width: 768px) {
-  .logo {
-    height: 60px;
-  }
+  .logo { height: 60px; }
 
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  .header-inner { flex-direction: column; align-items: flex-start; }
 
   nav {
     margin-top: 0.75rem;
@@ -333,29 +272,17 @@ a:focus-visible,
     font-size: 1rem;
   }
 
-  .hero {
-    min-height: 80vh;
-  }
+  .hero { min-height: 80vh; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
 
-  .hero h1 {
-    font-size: 2rem;
-  }
+  .instructor-content { grid-template-columns: 1fr; }
+  .instructor-photo { max-width: 240px; }
 
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .instructor-content {
-    grid-template-columns: 1fr;
-  }
-
-  .instructor-photo {
-    max-width: 240px;
-  }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-right { justify-content: center; }
 }
 
 @media (max-width: 480px) {
-  .hero {
-    min-height: 70vh;
-  }
+  .hero { min-height: 70vh; }
 }
